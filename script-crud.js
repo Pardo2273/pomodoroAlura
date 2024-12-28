@@ -6,6 +6,9 @@ const pDescTarea = document.querySelector('.app__section-active-task-description
 const removerConcluidasBtn = document.getElementById('btn-remover-concluidas');
 const removerTodasBtn = document.getElementById('btn-remover-todas');
 
+const btnFormEliminar = document.querySelector('.app__form-footer__button--delete');
+const btnFormCancelar= document.querySelector('.app__form-footer__button--cancel');
+
 //JSON tiene dos metodos principales: 
 //stringify - Convertir un parametro a string. 
 //parse - Convertir un string a un array u objeto.
@@ -104,6 +107,10 @@ btnAgregarTarea.addEventListener('click', function () {
     formAgregarTarea.classList.toggle('hidden');
 });
 
+//botones eliminar y cancelar del formulario (tienen que cerrar el form)
+btnFormEliminar.onclick = () => formAgregarTarea.classList.add('hidden');
+btnFormCancelar.onclick = () => formAgregarTarea.classList.add('hidden');
+
 formAgregarTarea.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -158,3 +165,5 @@ const eliminarTareas = (soloConcluidas) => {
 
 removerConcluidasBtn.onclick = () => eliminarTareas(true);
 removerTodasBtn.onclick = () => eliminarTareas(false);
+
+
