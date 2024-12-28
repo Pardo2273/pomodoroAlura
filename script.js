@@ -18,7 +18,7 @@ const textoIniciarPausar = document.querySelector('#start-pause span');
 const imagenIniciarPausar = document.querySelector('.app__card-primary-butto-icon');
 const tiempoEnPantalla = document.querySelector('#timer');
 
-let tiempoTranscurridoEnSegundos = 5; //1500;//igual a 25 minutos
+let tiempoTranscurridoEnSegundos = 1500;//igual a 25 minutos
 let idIntervalo = null;
 
 const musicaTiempoInicio = new Audio('./sonidos/play.wav');
