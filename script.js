@@ -18,7 +18,7 @@ const textoIniciarPausar = document.querySelector('#start-pause span');
 const imagenIniciarPausar = document.querySelector('.app__card-primary-butto-icon');
 const tiempoEnPantalla = document.querySelector('#timer');
 
-let tiempoTranscurridoEnSegundos = 1500;//igual a 25 minutos
+let tiempoTranscurridoEnSegundos = 5; //1500;//igual a 25 minutos
 let idIntervalo = null;
 
 const musicaTiempoInicio = new Audio('./sonidos/play.wav');
@@ -97,6 +97,16 @@ const cuentaRegresiva = () => {
     if(tiempoTranscurridoEnSegundos <= 0){
         musicaTiempoFinalizado.play();
         alert('Tiempo Final');
+        
+        //generamos evento para sincronizar el tiempo con la conclusion de la tarea.
+        const enfoqueActivo = html.getAttribute("data-contexto") == "enfoque"; //esto se guarda como boolean
+        if(enfoqueActivo){
+            //broadcast event
+            const evento = new CustomEvent("EnfoqueFinalizado");//generamos evento
+            document.dispatchEvent(evento);//lo disparamos
+
+        }
+
         reiniciar();
         return; //este return sin nada es para interrumpir el tiempo de la operacion
     }
