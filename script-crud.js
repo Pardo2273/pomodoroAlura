@@ -59,7 +59,7 @@ function crearElementoTarea(tarea) {
     });
 
     const img = document.createElement('img');
-    img.src = '/imagenes/edit.png';
+    img.src = './imagenes/edit.png';
 
     li.appendChild(svg);
     li.appendChild(parrafoDesc);
